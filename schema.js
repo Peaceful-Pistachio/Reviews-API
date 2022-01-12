@@ -19,11 +19,13 @@ const mongoose = require('mongoose');
           helpfulness: Number,
           response: String,
           photos:[id: Number, thumbnail_url:String]
-          haracteristics: {
+          characteristics: {
             size: Number,
             width: Number,
             comfort: Number,
-            Quality: Number
+            Quality: Number,
+            length: Number,
+            fit: Number
           }
         }
     ]
