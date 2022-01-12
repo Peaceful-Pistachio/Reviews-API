@@ -1,11 +1,21 @@
 const mongoose = require('mongoose');
 
+mongoose
+  .connect('mongodb://localhost/reviews',
+    { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('<<----Yeah!! Connected to MongoDB!---->>');
+  })
+  .catch(err => {
+    console.log(err);
+  });
 
-  const reviews = mongoose.Schema({product_id: Number, reviews:Object}); //review Object should have all data
+  mongoose.set('debug', true);
+  //const reviews = mongoose.Schema({product_id: Number, reviews:Object}); //review Object should have all data
 
  // in detail
 
-  const reviews = mongoose.Schema({
+  const reviews =  mongoose.Schema({
     product_id: Number,
     reviews:[
         {
@@ -30,7 +40,9 @@ const mongoose = require('mongoose');
         }
     ]
   });
+
   const product_review = mongoose.model('product_review', reviews);
+
 
 
 
