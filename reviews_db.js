@@ -15,18 +15,18 @@ mongoose
 
  // in detail
 
-  const reviews =  mongoose.Schema({
+  const reviews =  new mongoose.Schema({
     product_id: Number,
     reviews:[
         {
-          id: Number
-          body: String,
-          date: Date,
-          rating: Number,
-          recommend: Boolean,
-          reviewName: String,
-          email: String,
-          helpfulness: Number,
+          id: {type: Number, required: true}
+          body: {type: String, max: 1000, trim: true, required: true}
+          date: {type: Date, default: Date.now},
+          rating: {type: Number, required: true},
+          recommend: {type: Boolean, required: true},
+          reviewName: {type: String, trim: true, required: true},
+          email: {type: String, trim: true, required: true},
+          helpfulness: {type: Number, default: 0},
           response: String,
           photos:[id: Number, thumbnail_url:String]
           characteristics: {
@@ -41,7 +41,9 @@ mongoose
     ]
   });
 
-  const product_review = mongoose.model('product_review', reviews);
+  module.exports = mongoose.model('product_review', reviews);
+
+  // const product_review = mongoose.model('product_review', reviews);
 
 
 
