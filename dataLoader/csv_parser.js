@@ -126,17 +126,17 @@ const meta = ()=> {
 
 
 
-const getReview = (product_id, count = 5, sort = 'relevant', page = 1, callback) => {
+const getReview = (product_id, page = 1, count = 5, sort = 'relevant', callback) => {
   MongoClient.connect(url, function(err, client) {
-    if (err) callback(err)
+    if (err) callback(err, null)
     const db = client.db("reviews");
-    db.collection('reviews').find({product_id:4}).toArray()
+    db.collection('reviews').find({product_id: Number(product_id)}).toArray()
       .then(data => {
         if (data.length === 0) {
-          callback({product: 2, page, count, results:[]})
+          callback(null, {product_id, page, count, review:[]})
         } else {
           const totalPages = Math.ceil(data.length/ count);
-          totalPages < 1 ? callback(data) : callback(data.slice(page*count - count, page*count))
+          totalPages < 1 ? callback(null, data) : callback(null, data.slice(page*count - count, page*count))
         }
       });
   });
