@@ -1,16 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getReview, getMeta, addReview} = require('../model/reviews_service');
+const { getReview, getMeta, addReview, updateField} = require('../model/reviews_service');
 const {Review, Meta}  = require('../model/reviewsModel');
-// const Meta  = require('../model/reviewsModel')
-
-
-// router.get('/test', (req, res) => {
-//   const {product_id} = req.query;
-//     Review.findOne({}).sort({id: -1}).exec((err, result) => {
-//       console.log(result)
-//     })
-// })
 
 router.get('/', (req, res) => {
   const request = 'product_id' in req.query ? req.query : req.body
@@ -24,11 +15,6 @@ router.get('/', (req, res) => {
   }
 });
 
-
-// router.get('/:product_id', (req, res) => {
-//   console.log(req.params)
-// })
-
 router.get('/meta', (req, res) => {
   const request = 'product_id' in req.query ? req.query : req.body
   let { product_id } = request;
@@ -41,9 +27,7 @@ router.get('/meta', (req, res) => {
   }
 });
 
-
 router.post('/', (req, res) => {
-
   const checkValidation = ({product_id, rating, summary, body, recommend, name, email, photos, characteristics}) => {
     if(typeof(product_id) !== 'number' || (typeof(rating) !== 'number') || rating < 1 || rating > 5) {
       console.log(1)
@@ -76,11 +60,15 @@ router.post('/', (req, res) => {
 
 });
 
-
-
-// router.post('/:review_id', (req, res) => {
-//   res.status(200).json('getting meta')
-// })
+router.put('/:review_id/:field', (req, res) => {
+  const {review_id, field} = req.params;
+  Number(review_id) < 1 || isNaN(Number(review_id)) || !['helpful', 'report'].includes(field) ? res.status(404).json('Invalid request') :
+   updateField(Number(review_id), field, (err, result) => {
+     err
+     ? res.status(404).json('something went wrong :/')
+     : res.status(204).send();
+   });
+});
 
 module.exports = router ;
 

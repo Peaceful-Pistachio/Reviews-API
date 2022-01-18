@@ -1,6 +1,6 @@
 const { Review, Meta, LastID } = require('./reviewsModel.js');
 
-// getLast function return Id for adding photo/ review
+
 const getLast = (type, callback) => {
   const updatedField = type === 'review' ? 'review_id' : 'photo_id';
   LastID.findOneAndUpdate({}, {$inc:{[updatedField]: 1}}, (err, result) => err ? callback(err, null) : callback(null, result[updatedField] + 1));
@@ -89,8 +89,6 @@ module.exports = {
           });
           Promise.all(promises).then(() => {
             review.photos = photoList;
-            console.log(review)
-
             new Review(review).save().then(result => callback(null, result));
           });
         } else {
@@ -100,13 +98,16 @@ module.exports = {
     });
   },
 
-  markHelpful: ()=> {},
-
-  reportReview:()=> {}
-
+  updateField: (review_id, field, callback)=> {
+    const option = field === 'helpful' ? {$inc: {helpfulness: 1}} : {$set:{reported: true}};
+    Review.findOneAndUpdate({id: review_id}, option, (err, result) => {
+      err ? callback(err, null) : callback(null, 'updated')
+    })
+  }
 }
 
 
+/** All functions below are used for cleaning up data after each service test */
 const cleanUpID = () => {
   LastID.updateOne({}, {$set:{review_id: 5774952, photo_id
     :
@@ -115,14 +116,28 @@ const cleanUpID = () => {
 
 const deleteReview = (id) => {
   Review.deleteOne({id}, (err, result) => {
-    err ? console.log(err)  : console.log(result);
+    err ? console.log(err) : console.log(result);
   })
 }
 
 const cleanUpMeta = () => {
-
   Meta.findOneAndUpdate({product_id: 3}, {$set: {characteristics: {Fit: {id: 6, value: 0}, Length: {id: 7, value:0}, Comfort: {id: 8, value: 0}, Quality: {id: 9, value:0}} , rating:{}, recommended:{}, totalReviews:0}}, (err, result) => err ? console.log(err) : console.log(result))
 }
+
+const cleanUpHelpfultest = () => {
+  Review.findOneAndUpdate({id:3}, {$set:{helpfulness: 5}}, (err, result) => {
+    err ? console.log(err) : console.log(result)
+  })
+};
+
+const cleanUpReportTest = () => {
+  Review.findOneAndUpdate({id:3}, {$set:{reported: false}}, (err, result) => {
+    err ? console.log(err) : console.log(result)
+  })
+}
+
+// cleanUpHelpfultest();
+// cleanUpReportTest();
 // cleanUpMeta();
 // cleanUpID();
 // deleteReview(5774953)
