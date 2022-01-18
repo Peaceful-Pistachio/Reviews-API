@@ -1,38 +1,42 @@
-const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017";
-const reviewsDB = 'reviews'; //collections
-const reviewPhotosDB = 'reviews_photo';
+const addTheRestProductToMeta = (callback) => {
+  MongoClient.connect(url, function(err, client) {
+    if (err) callback(err, null)
+    const db = client.db("reviews");
+    PapaParser.parse(allCharsFile, {
+      encoding: 'utf-8',
+      delimiter: ',',
+      header: true,
 
-//  const addPhoto = (reviewId, photoId, url ) => {
+      step: (results, parser) => {
+        parser.pause();
+        allCharsFile.pause();
+        const {product_id, id, reviewer_name} = results.data;
+        db.collection('reviews_meta').findOne({product_id:Number(product_id)}).then(result => {
+          if(result === null) {
+            Char.find({product_id: Number(product_id)}).exec((err, productChar) => {
+              const temp = {};
+              productChar.forEach(el => {
+                  const {name, id} = el;
+                  temp[name] = {id, value:0}
+              });
+              new Meta({product_id: Number(product_id), characteristics: temp, rating:{}, recommended:{}}).save().then(result => {
+                console.log(result)
+                allCharsFile.resume();
+                parser.resume();
+              })
+            });
+          } else {
+            allCharsFile.resume();
+            parser.resume();
+          }
+        });
+      },
+      complete: (results) => {
+        callback(null,' Done !')
+      }
+    });
+  });
+};
 
-  // Loading process: set photo:[] for each reviews
-
-    const initializePhoto = (callback) => {
-      MongoClient.connect(url, function(err, db) {
-        if (err) throw(err)
-        const dbo = db.db("reviews"); //database
-        dbo.collection(reviewsDB).updateMany({}, {$set: {photos:[]}}).then(data => callback(data))
-      });
-    }
-
-    const addReviewPhoto = (review_id, id, url) => {
-      // MongoClient.connect(url, function(err, db) {
-      //   if (err) throw(err)
-        const dbo = db.db("reviews"); //database
-        dbo.collection(reviewsDB).findOneAndUpdate({id:review_id}, {$push: {photos:{id:id, url:url}}}).then(data => {
-          console.log(data);
-          // db.close();
-        })
-      // });
-    }
-
-
-
-  // add photo in
-
-
-
-
-
-// }
-module.exports.addReviewPhoto = addReviewPhoto;
+module.exports.resetPhotoFieldReviews = resetPhotoFieldReviews;
+module.exports.addPhotoReviews = addPhotoReviews;
