@@ -101,13 +101,13 @@ module.exports = {
   updateField: (review_id, field, callback)=> {
     const option = field === 'helpful' ? {$inc: {helpfulness: 1}} : {$set:{reported: true}};
     Review.findOneAndUpdate({id: review_id}, option, (err, result) => {
-      err ? callback(err, null) : callback(null, 'updated')
+      err ? callback(err, null) : callback(null, 'updated');
     })
   }
 }
 
 
-/** All functions below are used for cleaning up data after each service test */
+/** All functions below are used for cleaning up data after each route test */
 const cleanUpID = () => {
   LastID.updateOne({}, {$set:{review_id: 5774952, photo_id
     :
