@@ -107,7 +107,7 @@ module.exports = {
 }
 
 
-/** All functions below are used for cleaning up data after each service test */
+/** All functions below are used for cleaning up data after each route test */
 const cleanUpID = () => {
   LastID.updateOne({}, {$set:{review_id: 5774952, photo_id
     :
