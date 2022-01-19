@@ -1,6 +1,5 @@
 const { Review, Meta, LastID } = require('./reviewsModel.js');
 
-
 const getLast = (type, callback) => {
   const updatedField = type === 'review' ? 'review_id' : 'photo_id';
   LastID.findOneAndUpdate({}, {$inc:{[updatedField]: 1}}, (err, result) => err ? callback(err, null) : callback(null, result[updatedField] + 1));
