@@ -22,7 +22,7 @@ router.get('/meta', (req, res) => {
     res.status(404).json('invalid product_id')
   } else {
     getMeta(Number(product_id), (err, result) => {
-      err ? res.status(404).json('someting went wrong :/') : res.status(201).json(result)
+      err ? res.status(404).json('someting went wrong :/') : res.status(200).json(result)
     })
   }
 });
@@ -30,23 +30,18 @@ router.get('/meta', (req, res) => {
 router.post('/', (req, res) => {
   const checkValidation = ({product_id, rating, summary, body, recommend, name, email, photos, characteristics}) => {
     if(typeof(product_id) !== 'number' || (typeof(rating) !== 'number') || rating < 1 || rating > 5) {
-      console.log(1)
       return false;
     }
     if (summary && typeof(summary) !== 'string') {
-      console.log(2)
       return false;
     }
     if ([body, name, email].some(el => typeof(el) !== 'string')) {
-      console.log(3)
       return false;
     }
     if(!Array.isArray(photos)) {
-      console.log(photos)
       return false;
     }
     if (!Array.isArray(characteristics) && typeof(characteristics) !== 'object') {
-      console.log(5)
       return false;
     } else {
       return true;
@@ -55,7 +50,7 @@ router.post('/', (req, res) => {
   if(!checkValidation(req.body)) {
     res.status(404).json('Invalid input')
   } else {
-    addReview(req.body,(err, result) => err ? res.status(404).json('someting went wrong :/') : res.status(201).json('created'))
+    addReview(req.body,(err, result) => err ? res.status(404).json('someting went wrong :/') : res.status(201).json())
   }
 
 });
