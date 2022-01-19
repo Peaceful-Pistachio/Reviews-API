@@ -67,3 +67,19 @@ describe('GET /reviews', () => {
     });
   })
 
+  describe('POST /reviews/', () => {
+    it('response status 201 code created', (done) => {
+      request(app)
+        .post('/reviews?product_id=32')
+        .expect(201, done)
+    })
+  });
+
+  describe('PUT /reviews/:review_id/helpful', () => {
+    it('response status 201 code created', (done) => {
+      request(app)
+        .post('/reviews/12/helpful')
+        .expect(201, done)
+    })
+  });
+
