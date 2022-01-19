@@ -10,7 +10,8 @@ export const options = {
 };
 
 export default function () {
-    const res =  http.get(`http://localhost:3001/reviews/meta?product_id=${Math.ceil(Math.random()*1000000)}`);
+  
+    const res =  http.get(`http://localhost:3001/reviews?product_id=${Math.ceil(Math.random()*1000000)}`);
     sleep(1);
     check(res, {
       'is status 200': (r) => r.status === 200,
@@ -25,6 +26,11 @@ export default function () {
       'transaction time < 200ms': (r) => r.timings.duration < 200,
       'transaction time < 210ms': (r) => r.timings.duration < 210,
       'transaction time < 220ms': (r) => r.timings.duration < 220,
-      'transaction time < 250ms': (r) => r.timings.duration < 250,
+      'transaction time < 270ms': (r) => r.timings.duration < 270,
+      'transaction time < 300ms': (r) => r.timings.duration < 300,
+      'transaction time < 400ms': (r) => r.timings.duration < 400,
+      'transaction time < 500ms': (r) => r.timings.duration < 500,
+      'transaction time < 600ms': (r) => r.timings.duration < 600,
+      'transaction time < 700ms': (r) => r.timings.duration < 700,
     });
   }
