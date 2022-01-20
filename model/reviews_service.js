@@ -36,7 +36,7 @@ module.exports = {
     page = page || 1;
     count = count || 5;
     sort =  sort ? sort === 'helpful' ? {'helpfulness': -1} : {date: -1} : {};
-    Review.find({product_id, reported:false}).sort(sort).select('-_id -product_id -reviewer_email -__v').exec((err, result) => {
+    Review.find({product_id, reported:false}).select('-_id -product_id -reviewer_email -__v').sort(sort).exec((err, result) => {
       callback(null, {product_id, page, count, results: result.slice(page*count - count, page*count)});
     });
   },

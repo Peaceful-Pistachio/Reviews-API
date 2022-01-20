@@ -9,13 +9,19 @@ export const options = {
   duration: '10s'
 };
 
+const getRandomProduct_id = () =>  Math.ceil(Math.random()*1000000);
+
 export default function () {
-  
-    const res =  http.get(`http://localhost:3001/reviews?product_id=${Math.ceil(Math.random()*1000000)}`);
+
+    const res =  http.get(`http://localhost:3001/reviews/meta?product_id=${getRandomProduct_id}`);
     sleep(1);
     check(res, {
       'is status 200': (r) => r.status === 200,
-      'transaction time < 25ms': (r) => r.timings.duration < 25,
+      'transaction time < 10ms': (r) => r.timings.duration < 10,
+      'transaction time < 15ms': (r) => r.timings.duration < 15,
+      'transaction time < 18ms': (r) => r.timings.duration < 18,
+      'transaction time < 20ms': (r) => r.timings.duration < 20,
+      'transaction time < 30ms': (r) => r.timings.duration < 30,
       'transaction time < 50ms': (r) => r.timings.duration < 50,
       'transaction time < 75ms': (r) => r.timings.duration < 75,
       'transaction time < 85ms': (r) => r.timings.duration < 85,
