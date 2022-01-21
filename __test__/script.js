@@ -13,7 +13,8 @@ const getRandomProduct_id = () =>  Math.ceil(Math.random()*1000000);
 
 export default function () {
 
-    const res =  http.get(`http://localhost:3001/reviews/meta?product_id=${getRandomProduct_id}`);
+    // const res =  http.get(`http://54.237.56.11:3001/reviews/meta?product_id=${getRandomProduct_id}`);
+    const res =  http.get(`http://54.237.56.11:3001/reviews/test`);
     sleep(1);
     check(res, {
       'is status 200': (r) => r.status === 200,

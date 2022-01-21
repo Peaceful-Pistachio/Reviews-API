@@ -6,6 +6,30 @@ const charReviews = 'characteristic_reviews';
 const reviewsMeta = 'reviews_meta';
 const reviewsFile = fs.createReadStream('rawData/reviews.csv');
 const characteristicsFile = fs.createReadStream('rawData/characteristics.csv');
+const reviewsByProduct_id = 'reviewsByProduct_ID';
+const reviews = 'reviews';
+
+const orderReviewByProductID = (callback) => {
+  MongoClient.connect(url, (err, client) => {
+    if (err) callback(err, null)
+    const db = client.db(reviews);
+
+
+      db.collection(reviews).find({}).forEach(result => {
+        const product_id = result.product_id;
+        if( db.collection(reviewsByProduct_id).findOne({product_id}).length) {
+          db.collection(reviewsByProduct_id).findOneAndUpdate({product_id}, {$addToSet: {reviews: result}}).then((res) => console.log(res))
+        }else {
+          const obj = {product_id, reviews:[result]}
+          db.collection(reviewsByProduct_id).insertOne(obj);
+        }
+      })
+  })
+}
+orderReviewByProductID((err, res) => err? console.log(err) : console.log(res))
+
+
+
 
 /*-------------addNameToCharReview - worked ✅ ----------------*/
 const addNameToCharReview = (callback)=> {

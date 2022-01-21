@@ -15,6 +15,14 @@ router.get('/', (req, res) => {
   }
 });
 
+//test
+router.get('/test', (req, res) => {
+  let page, count, sort;
+  getReview(Math.ceil(Math.random()*1000000), Number(page), Number(count), sort,  (err, result) => {
+    err ? res.status(404).json('someting went wrong :/') : res.status(200).json(result)
+  })
+})
+
 router.get('/meta', (req, res) => {
   const request = 'product_id' in req.query ? req.query : req.body
   let { product_id } = request;

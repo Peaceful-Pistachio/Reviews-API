@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const hintPlugin = require('mongoose-hint')
-mongoose.connect('mongodb://172.31.23.186:27017/reviews');
+
+mongoose.connect('mongodb://localhost:27017/reviews');
 
 const { Schema } = mongoose;
 
@@ -45,17 +45,9 @@ const Char = mongoose.model('Char', productChar)
 const Review = mongoose.model('Review', ReviewSchema);
 const Meta = mongoose.model('Meta', ReviewMetaSchema);
 
-const PRODUCT_ID = {
-  product_id: 1,
-}
-ReviewMetaSchema.index(PRODUCT_ID)
-ReviewMetaSchema.plugin(hintPlugin.find, [
-  PRODUCT_ID
-]);
 
-ReviewSchema.index(PRODUCT_ID)
-ReviewSchema.plugin(hintPlugin.find, [
-  PRODUCT_ID
-]);
+ReviewMetaSchema.index({product_id: 1})
+ReviewSchema.index({product_id: 1,  reported: 1})
+
 
 module.exports = {Review, Meta, Char, LastID}
