@@ -13,25 +13,19 @@ const orderReviewByProductID = (callback) => {
   MongoClient.connect(url, (err, client) => {
     if (err) callback(err, null)
     const db = client.db(reviews);
-
-
-      db.collection(reviews).find({}).forEach(result => {
-        const product_id = result.product_id;
-        if( db.collection(reviewsByProduct_id).findOne({product_id}).length) {
-          db.collection(reviewsByProduct_id).findOneAndUpdate({product_id}, {$addToSet: {reviews: result}}).then((res) => console.log(res))
-        }else {
-          const obj = {product_id, reviews:[result]}
-          db.collection(reviewsByProduct_id).insertOne(obj);
-        }
-      })
+    db.collection(reviews).find({}).forEach(result => {
+      const product_id = result.product_id;
+      if( db.collection(reviewsByProduct_id).findOne({product_id}).length) {
+        db.collection(reviewsByProduct_id).findOneAndUpdate({product_id}, {$addToSet: {reviews: result}}).then((res) => console.log(res))
+      }else {
+        const obj = {product_id, reviews:[result]}
+        db.collection(reviewsByProduct_id).insertOne(obj);
+      }
+    })
   })
 }
-orderReviewByProductID((err, res) => err? console.log(err) : console.log(res))
 
-
-
-
-/*-------------addNameToCharReview - worked ✅ ----------------*/
+/*-------------addNameToCharReview -----------------*/
 const addNameToCharReview = (callback)=> {
   MongoClient.connect(url, function(err, client) {
     if (err) callback(err)
@@ -53,7 +47,7 @@ const addNameToCharReview = (callback)=> {
   });
 };
 
-/*------------Group Review by product_id and calulate average over all reviews for Meta ✅ ----------*/
+/*------------Group Review by product_id and calulate average over all reviews for Meta ----------*/
 const groupReviewByProductId = (callback) => {
   MongoClient.connect(url, function(err, client) {
     if (err) callback(err, null)
@@ -127,3 +121,5 @@ const groupReviewByProductId = (callback) => {
 
 module.exports.groupReviewByProductId = groupReviewByProductId;
 module.exports.addNameToCharReview = addNameToCharReview;
+
+// orderReviewByProductID((err, res) => err ? console.log(err) : console.log(res))

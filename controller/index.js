@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { getReview, getMeta, addReview, updateField} = require('../model/reviews_service');
-const {Review, Meta}  = require('../model/reviewsModel');
+const { getReview, getMeta, addReview, updateField } = require('../model/reviews_service');
+const { Review, Meta }  = require('../model/reviewsModel');
+
+
 
 router.get('/', (req, res) => {
   const request = 'product_id' in req.query ? req.query : req.body
-  let {product_id, count, page, sort} = request;
-  if (product_id === undefined || (req.body.product_id && typeof(product_id)!== 'number') || sort && !['helpful', 'relevant', 'newest'].includes(sort) || (count && count <1) || (page && page<1)) {
+  let { product_id, count, page, sort } = request;
+  if ( product_id === undefined || (req.body.product_id && typeof(product_id)!== 'number') || sort && !['helpful', 'relevant', 'newest'].includes(sort) || (count && count <1) || (page && page<1)) {
     res.status(404).json('Invalid input');
   } else {
     getReview(Number(product_id), Number(page), Number(count), sort,  (err, result) => {

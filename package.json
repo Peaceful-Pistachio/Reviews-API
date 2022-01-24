@@ -6,7 +6,6 @@
   "dependencies":{
   },
   "devDependencies": {
-    "csv-parser": "^3.0.0",
     "express": "^4.17.2",
     "jest": "^27.4.7",
     "mongoose": "^6.1.6",
@@ -17,7 +16,7 @@
   },
   "scripts": {
     "test": "jest --watchAll",
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "db": "nodemon reviews_db.js"
   },
   "repository": {

@@ -1,4 +1,3 @@
-
 const PapaParser = require('papaparse');
 const fs = require('fs');
 const MongoClient = require('mongodb').MongoClient;
@@ -8,9 +7,7 @@ const reviewsPhotoFile = fs.createReadStream('rawData/reviews_photos.csv');
 const allCharsFile = fs.createReadStream('rawData/characteristics.csv');
 const { Char, Meta } = require('../model/reviewsModel');
 
-
-
-/*-------------SET PHOTOS FIELD to EMPTY - worked ✅-----------------*/
+/*-------------SET PHOTOS FIELD to EMPTY ------------------*/
 const resetPhotoFieldReviews = (callback) => {
   MongoClient.connect(url, function(err, client) {
     if (err) callback(err)
@@ -23,7 +20,7 @@ const resetPhotoFieldReviews = (callback) => {
   });
 };
 
-/**--------------- ADD URL TO PHOTOS FIELD----worked✅----- */
+/**--------------- ADD URL TO PHOTOS FIELD-------- */
 const addPhotoReviews = (callback) => {
   MongoClient.connect(url, function(err, client) {
     if (err) callback(err)

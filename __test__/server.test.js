@@ -68,10 +68,10 @@ describe('GET /reviews', () => {
   })
 
   describe('POST /reviews/', () => {
-    it('response status 201 code created', (done) => {
+    it('response status 404 code for request with invalid header', (done) => {
       request(app)
         .post('/reviews?product_id=32')
-        .expect(201, done)
+        .expect(404, done)
     })
   });
 

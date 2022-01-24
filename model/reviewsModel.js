@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/reviews');
+mongoose.connect('mongodb:// 172.31.10.90:27017/reviews');
 
 const { Schema } = mongoose;
 

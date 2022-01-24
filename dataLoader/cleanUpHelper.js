@@ -1,11 +1,10 @@
 const PapaParser = require('papaparse');
-const fs = require('fs');
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017";
-const reviewsDB = 'reviews'; //collections
+const reviewsDB = 'reviews';
 const reviewMeta = 'reviews_meta';
 
-/*-------------DELETE PHOTOS FIELD - worked ✅ ----------------*/
+/*-------------DELETE PHOTOS FIELD -----------------*/
 const deletePhotoFieldReviews = (callback) => {
   MongoClient.connect(url, function(err, client) {
     if (err) callback(err)

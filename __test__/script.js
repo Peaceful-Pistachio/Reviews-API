@@ -9,12 +9,10 @@ export const options = {
   duration: '10s'
 };
 
-const getRandomProduct_id = () =>  Math.ceil(Math.random()*1000000);
-
 export default function () {
 
-    // const res =  http.get(`http://54.237.56.11:3001/reviews/meta?product_id=${getRandomProduct_id}`);
-    const res =  http.get(`http://54.237.56.11:3001/reviews/test`);
+
+    const res = http.get('http://44.201.235.203:80/reviews/test'); // Deployed IP address 
     sleep(1);
     check(res, {
       'is status 200': (r) => r.status === 200,
