@@ -23,7 +23,7 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 
 ## API Documentation
 
-## **Get** [ /reviews ]
+## **Get** [  /reviews  ]
 
 ### query params
  - product_id type of Number (required)
