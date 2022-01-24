@@ -145,7 +145,7 @@ EndPoint [http://44.201.235.203] Deploy server version
 ## Test Metric for Deploy Version on AWS after optimization
 **optimization tool** : load balancer (nginx), query adjustment, set up index on database
 ###### Speed up  **RPS from 2s to 0.004s**
-###### ![Before](https://drive.google.com/file/d/1CRruf0T4WIWu9x60wV57HjIYSIU26iq8/view?usp=sharing)
+###### ![Before](https://ibb.co/SmdkVD4)
 ###### ![After](https://drive.google.com/file/d/1Mh9LLZo-7dKSwP9pvok_rl4lrShjMKmQ/view?usp=sharing)
 
 
