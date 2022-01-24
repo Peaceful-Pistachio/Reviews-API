@@ -1,4 +1,4 @@
-# Reviews-API
+# Reviews-API #
 ![1](https://img.shields.io/badge/%20Technologies%20Used-%20%20Javascript-green)
 ![2](https://img.shields.io/badge/%20-Express-blue)
 ![3](https://img.shields.io/badge/%20-Node.js-blueviolet)
@@ -11,7 +11,7 @@
 ![10](https://img.shields.io/badge/-K6-52b788)
 
 
-##This is an API backend for Product Reviews on Shopping E-commerce Application##
+## This is an API backend for Product Reviews on Shopping E-commerce Application ##
 
 ## Get Start
 - git clone [https://github.com/Peaceful-Pistachio/Reviews-API.git]
