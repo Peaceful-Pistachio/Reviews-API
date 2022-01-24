@@ -1,6 +1,6 @@
 # Reviews-API
 ![1](https://img.shields.io/badge/Tool%3A%20-Javascript-brightgreen)
-![2](https://img.shields.io/badge/%20-Express-orange)
+![2](https://img.shields.io/badge/%20-Express-blue)
 ![3](https://img.shields.io/badge/%20-Node.js-yellow)
 ![4](https://img.shields.io/badge/%20-MongoDB-red)
 
