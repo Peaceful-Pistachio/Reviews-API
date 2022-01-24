@@ -1,5 +1,5 @@
 # Reviews-API
-![1](https://img.shields.io/badge/Technologies-Used%3A%20-Javascript-brightgreen)
+![1](https://img.shields.io/badge/%20Technologies%20Used-%20%20Javascript-green)
 ![2](https://img.shields.io/badge/%20-Express-blue)
 ![3](https://img.shields.io/badge/%20-Node.js-blueviolet)
 ![4](https://img.shields.io/badge/%20-MongoDB-red)
