@@ -150,7 +150,7 @@ EndPoint [http://44.201.235.203] Deploy server version
 
 ## Test Metric for Deploy Version on AWS after optimization
 **optimization** 
-![1](https://img.shields.io/badge/Tool%3A%20-NGIX-brightgreen)
+![1](https://img.shields.io/badge/Tool%3A%20-NGINX-brightgreen)
 ![2](https://img.shields.io/badge/%20-AWS-7cf)
 ![3](https://img.shields.io/badge/%20-Loader.io-blueviolet)
 
