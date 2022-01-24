@@ -25,14 +25,14 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 
 ## **Get** [ /reviews ]
 
-###### query params
+### query params
  - product_id type of Number (required)
  - page type of Number (optional), by default page is 1
  - count type of Number (optional), by default count is 5
  - sort type of String (optional), sort selection is 'helpful', 'newest' and 'relevant', by default sort is 'relevant'
 
- ###### **Sample request [ http://localhost:3001/reviews?product_id=32 ]**
- ###### **Sample result with response 200 status**
+ ### **Sample request [ http://localhost:3001/reviews?product_id=32 ]**
+ ### **Sample result with response 200 status**
 ```json  
  {
     "product_id": 32,
