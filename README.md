@@ -112,7 +112,7 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 ## **Post** [ /reviews ] response *status 201 created*
 
 ## query params
- -product_id type of Number (required)
+ - product_id type of Number (required)
  - rating type of object (required)
  - summary type of Srting, less than 20 characters (optional)
  - body type of String, less than 1,000 characters (required)
