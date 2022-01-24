@@ -12,8 +12,8 @@ This is an API backend for Product Reviews on Shopping E-commerce Application
 - npm install
 - to start server run command "npm start"
 
-EndPoint [localhost:3001] Local version
-EndPoint [http://44.201.235.203] Deploy server version
+EndPoint [ http://localhost:3001 ] Local version
+EndPoint [ http://44.201.235.203 ] Deploy server version
 
 ## Features
 - User can see all reviews of current product if there is a review for that product
@@ -31,8 +31,8 @@ EndPoint [http://44.201.235.203] Deploy server version
  - count type of Number (optional), by default count is 5
  - sort type of String (optional), sort selection is 'helpful', 'newest' and 'relevant', by default sort is 'relevant'
 
- ###### Sample request [http://localhost:3001/reviews?product_id=32]
- ###### Sample result with response 200 status
+ ###### **Sample request [ http://localhost:3001/reviews?product_id=32 ]**
+ ###### **Sample result with response 200 status**
 ```json  
  {
     "product_id": 32,
@@ -74,7 +74,7 @@ EndPoint [http://44.201.235.203] Deploy server version
 ## query params
  - product_id type of Number (required)
 
-###### sample request [http://localhost:3001/reviews/meta?product_id=32]
+###### **sample request [ http://localhost:3001/reviews/meta?product_id=32 ]**
 ###### sample result with response 200 status
 ```
  {
