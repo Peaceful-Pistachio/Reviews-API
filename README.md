@@ -3,6 +3,7 @@
 ![2](https://img.shields.io/badge/%20-Express-blue)
 ![3](https://img.shields.io/badge/%20-Node.js-blueviolet)
 ![4](https://img.shields.io/badge/%20-MongoDB-red)
+![5](https://img.shields.io/badge/%20-papaparse-red)
 
 This is an API backend for Product Reviews on Shopping E-commerce Application
 
@@ -148,7 +149,10 @@ EndPoint [http://44.201.235.203] Deploy server version
 
 
 ## Test Metric for Deploy Version on AWS after optimization
-**optimization tool** : load balancer (nginx), query adjustment, set up index on database
+**optimization** 
+![1](https://img.shields.io/badge/Tool%3A%20-NGIX-brightgreen)
+![2](https://img.shields.io/badge/%20-AWS-7cf)
+
 ###### Speed up  **RPS from 2s to 0.004s**
 ###### ![Before](Before-Optimization.png)
 ###### ![After](After-Optimization.png)
