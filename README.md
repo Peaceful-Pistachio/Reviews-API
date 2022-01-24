@@ -161,10 +161,9 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 ![2](https://img.shields.io/badge/%20-AWS-7cf)
 ![3](https://img.shields.io/badge/%20-Loader.io-blueviolet)
 
-###Speed up### **RPS from 2s to 0.004s**
-
-### ![Before](Before-Optimization.png)###
-### ![After](After-Optimization.png)###
+Speed up **RPS from 2s to 0.004s**
+![Before](Before-Optimization.png)
+![After](After-Optimization.png)
 
 
 
