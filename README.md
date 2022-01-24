@@ -32,8 +32,8 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
  - sort type of String (optional), sort selection is 'helpful', 'newest' and 'relevant', by default sort is 'relevant'
 
  ### Sample request 
-**[ http://localhost:3001/reviews?product_id=32 ]**
- ### **Sample result with response 200 status**
+*[ http://localhost:3001/reviews?product_id=32 ]*
+ ### Sample result with *response 200 status*
 ```json  
  {
     "product_id": 32,
@@ -70,13 +70,13 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 }
 ```
 
-## **Get** [ /reviews/meta ]
+## **Get** *[ /reviews/meta ]*
 
 ## query params
  - product_id type of Number (required)
 
-###### **sample request [ http://localhost:3001/reviews/meta?product_id=32 ]**
-###### sample result with response 200 status
+### sample request *[ http://localhost:3001/reviews/meta?product_id=32 ]*
+### sample result with *response 200 status*
 ```
  {
     "product_id": 32,
@@ -109,7 +109,7 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 }
 ```
 
-## **Post** [ /reviews ] response status 201 created
+## **Post** [ /reviews ] response *status 201 created*
 
 ## query params
  -product_id type of Number (required)
@@ -121,7 +121,7 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
  - photo type of array (optional)
  - characteristics type of object (required)
 
-###### sample Post request header
+###sample Post request header
 
 ```json  
 {
@@ -143,10 +143,10 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 ```
 
 
-## **Put request** [ /reviews/review_id ] response status 204 no content
+## **Put request** *[ /reviews/review_id ]* response *status 204 no content*
 
-###### Sample Put request for vote review as helpful [/reviews/review_id/helpful]
-###### Sample Put request for report review [/reviews/review_id/report]
+### Sample Put request for vote review as helpful [ /reviews/review_id/helpful ]
+### Sample Put request for report review [ /reviews/review_id/report ]
 
 
 ## Test Metric for Deploy Version on AWS after optimization
@@ -155,9 +155,10 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 ![2](https://img.shields.io/badge/%20-AWS-7cf)
 ![3](https://img.shields.io/badge/%20-Loader.io-blueviolet)
 
-###### Speed up  **RPS from 2s to 0.004s**
-###### ![Before](Before-Optimization.png)
-###### ![After](After-Optimization.png)
+####Speed up  **RPS from 2s to 0.004s**
+
+####![Before](Before-Optimization.png)
+### ![After](After-Optimization.png)
 
 
 
