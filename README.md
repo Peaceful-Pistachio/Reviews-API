@@ -151,8 +151,8 @@ EndPoint [ http://44.201.235.203 ] Deploy server version
 
 ## **Put request** *[ /reviews/review_id ]* response *status 204 no content*
 
-#### ** Sample Put request ** for vote review as helpful [ /reviews/review_id/helpful ]
-#### ** Sample Put request ** for report review [ /reviews/review_id/report ]
+##### Sample Put request for vote review as helpful [ /reviews/review_id/helpful ]
+##### Sample Put request ** for report review [ /reviews/review_id/report ]
 
 
 ## Test Metric for Deploy Version on AWS after optimization
