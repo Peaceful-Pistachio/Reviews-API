@@ -1,7 +1,7 @@
 # Reviews-API
 ![1](https://img.shields.io/badge/Tool%3A%20-Javascript-brightgreen)
 ![2](https://img.shields.io/badge/%20-Express-orange)
-![3](https://img.shields.io/badge/%20-Node.js-blue)
+![3](https://img.shields.io/badge/%20-Node.js-yellow)
 ![4](https://img.shields.io/badge/%20-MongoDB-red)
 
 This is an API backend for Product Reviews on Shopping E-commerce Application
