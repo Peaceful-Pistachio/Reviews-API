@@ -32,7 +32,8 @@ EndPoint [http://44.201.235.203] Deploy server version
 
  ###### Sample request [http://localhost:3001/reviews?product_id=32]
  ###### Sample result with response 200 status
-   {
+```json  
+ {
     "product_id": 32,
     "page": 1,
     "count": 5,
@@ -65,6 +66,7 @@ EndPoint [http://44.201.235.203] Deploy server version
         }
     ]
 }
+```
 
 ## *Get** [/reviews/meta]
 
@@ -73,6 +75,7 @@ EndPoint [http://44.201.235.203] Deploy server version
 
 ###### sample request [http://localhost:3001/reviews/meta?product_id=32]
 ###### sample result with response 200 status
+```
  {
     "product_id": 32,
     "rating": {
@@ -102,7 +105,7 @@ EndPoint [http://44.201.235.203] Deploy server version
         }
     }
 }
-
+```
 
 ## **Post** [/reviews] response status 201 created
 
@@ -117,7 +120,9 @@ EndPoint [http://44.201.235.203] Deploy server version
  - characteristics type of object (required)
 
 ###### sample Post request header
-  {
+
+```json  
+{
     "product_id":32,
     "rating": 5,
     "summary":"great",
@@ -133,7 +138,7 @@ EndPoint [http://44.201.235.203] Deploy server version
         "9":5
     }
 }
-
+```
 
 
 ## **Put request** [/reviews/review_id] response status 204 no content
@@ -146,7 +151,7 @@ EndPoint [http://44.201.235.203] Deploy server version
 **optimization tool** : load balancer (nginx), query adjustment, set up index on database
 ###### Speed up  **RPS from 2s to 0.004s**
 ###### ![Before](Before-Optimization.png)
-###### ![After](https://drive.google.com/file/d/1Mh9LLZo-7dKSwP9pvok_rl4lrShjMKmQ/view?usp=sharing)
+###### ![After](After-Optimization.png)
 
 
 
